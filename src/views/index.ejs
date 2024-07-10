@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../cssFolder/style.css" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <form class="search-form" action="/" method="post">
+        <input
+          type="text"
+          class="city-input"
+          name="city_name"
+          placeholder="Enter a city Name"
+        />
+        <button class="search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <%if(locals.cityName){ %>
+      <div class="city-name-section">
+        <h2 class="city"><%= cityName %></h2>
+        <p class="date"><%= currentDate %></p>
+      </div>
+
+      <div class="temp-info">
+        <div class="descripition">
+          <i class="fa-solid fa-cloud"></i>
+          <span><%= weatherView %></span>
+        </div>
+        <div class="temp"><%= currentTemp %></div>
+      </div>
+
+      <div class="additional-info">
+        <div class="wind-info">
+          <i class="fa-solid fa-wind"></i>
+          <div class="wind-speed"><%= windSpeed %> km/h</div>
+          <p class="wind-label">wind speed</p>
+        </div>
+
+        <div class="humidity-info">
+          <i class="fa-solid fa-droplet"></i>
+          <div class="humidity"><%= humidity %>%</div>
+          <p class="humidity">humidity</p>
+        </div>
+
+        <div class="visibility-info">
+          <i class="fa-solid fa-eye"></i>
+          <div class="visibility-distance"><%= visibilityDist %> m</div>
+          <p class="visibility-label">visibility</p>
+        </div>
+      </div>
+      <% } else {%>
+      <div>city not found</div>
+      <% }%>
+    </div>
+  </body>
+</html>
