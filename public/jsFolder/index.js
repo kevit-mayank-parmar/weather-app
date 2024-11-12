@@ -7,7 +7,7 @@ async function ClientData() {
     const data = res.data;
     console.log(data);
   } catch (error) {
-    console.log(error);
+    console.log(error, "hi");
   }
 }
 
